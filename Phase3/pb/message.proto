@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb;
+
+option go_package = "./pb";
+
+message Envelope {
+    int64 ID = 1;   // Envelope ID used to track request/response
+    uint32 Type = 2; // Message type
+    bytes Data = 3;  // Actual message data
+  
+    bool UnknownMessageType = 4; // Set if the implant did not understand the message
+}
+
+message SessionInfo {
+    int32 ID = 1;
+    string  System = 2;
+    string  Username = 3;
+    string  Hostname = 4;
+}
